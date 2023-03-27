@@ -13,5 +13,8 @@ public interface ProblemRepository extends JpaRepository<Problem, Long> {
     @Query(value = "SELECT * FROM Problem p WHERE p.project.code = ?1", nativeQuery = true)
     List<Problem> findProblemByProjectCode(String code);
 
+    @Query(value = "SELECT * FROM Problem p WHERE p.id = ?1", nativeQuery = true)
+    Problem getProblem(Long id);
+
 
 }
